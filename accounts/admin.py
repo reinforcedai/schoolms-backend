@@ -3,6 +3,9 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
+from allauth.socialaccount.models import SocialAccount, SocialApp, SocialToken
+from allauth.account.models import EmailAddress
+from rest_framework.authtoken.models import TokenProxy
 
 from .models import User
 
@@ -50,7 +53,7 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('email', 'first_name', 'last_name', 'is_admin')
+    list_display = ('email', 'first_name', 'last_name', 'is_admin', 'last_login')
     list_filter = ('is_admin',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -61,7 +64,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'first_name', 'last_name', 'password1', 'password2'),
+            'fields': ('email', 'first_name', 'last_name', 'user_type', 'password1', 'password2'),
         }),
     )
     search_fields = ('email',)
@@ -70,3 +73,9 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(User, UserAdmin)
+admin.site.unregister(SocialAccount)
+admin.site.unregister(SocialToken)
+admin.site.unregister(SocialApp)
+admin.site.unregister(TokenProxy)
+admin.site.unregister(EmailAddress)
+
