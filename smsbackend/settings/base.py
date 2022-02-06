@@ -17,7 +17,7 @@ import environ
 import django_heroku
 
 
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -218,7 +218,7 @@ SOCIALACCOUNT_PROVIDERS = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.0:3000',
-    'https://schoolms-frontend.herokuapp.com/',
+    'https://schoolms-frontend.herokuapp.com',
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r'^https://\w+\.herokuapp\.com$',
