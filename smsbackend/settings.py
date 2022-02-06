@@ -71,7 +71,6 @@ INSTALLED_APPS = [
     'studentportal',
     'schoolportal',
     'computer_based_test',
-    'alumni',
 
 ]
 
