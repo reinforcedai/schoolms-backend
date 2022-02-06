@@ -7,12 +7,12 @@ import uuid
 
 
 
-USER_TYPE = (
-    ('student', 'Student'),
-    ('staff', 'Staff'),
-    ('parent', 'Parent'),
-    ('alumni', 'Alumni'),
-    )
+# USER_TYPE = (
+#     ('student', 'Student'),
+#     ('staff', 'Staff'),
+#     ('parent', 'Parent'),
+#     ('alumni', 'Alumni'),
+#     )
 
     
 class UserManager(BaseUserManager):
