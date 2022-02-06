@@ -15,13 +15,12 @@ from typing import Optional
 
 import environ
 import django_heroku
-import dj_database_url
 
 
 env = environ.Env(DEBUG=(bool, False))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env.read_env(Path(str(BASE_DIR)) / '.env')
 
 
@@ -33,6 +32,11 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
+
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_ACCESS_SECRET = env('AWS_ACCESS_SECRET')
+# AWS_REGION = env('AWS_REGION')
+# AWS_BUCKET_NAME = env('AWS_BUCKET_NAME')
 
 ALLOWED_HOSTS = []
 
@@ -112,12 +116,12 @@ WSGI_APPLICATION = 'smsbackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -177,7 +181,6 @@ django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
