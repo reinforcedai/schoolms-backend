@@ -4,7 +4,7 @@ import dj_database_url
 from .base import *
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['schoolms-backend.herokuapp.com']
 
 INSTALLED_APPS += []
 

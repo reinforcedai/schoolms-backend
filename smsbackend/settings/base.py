@@ -218,10 +218,10 @@ SOCIALACCOUNT_PROVIDERS = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.0:3000',
-    'https://sms-frontend.netlify.app',
+    'https://schoolms-frontend.herokuapp.com/',
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r'^https://\w+\.netlify\.app$',
+    r'^https://\w+\.herokuapp\.com$',
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
