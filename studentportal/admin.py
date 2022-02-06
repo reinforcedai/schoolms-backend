@@ -11,7 +11,6 @@ from .models import (
     Parent,
     Subject,
     Performance,
-    Newsletter
     )
 
 admin.site.register(Student)
@@ -24,6 +23,5 @@ admin.site.register(Hostel)
 admin.site.register(Parent)
 admin.site.register(Subject)
 admin.site.register(Performance)
-admin.site.register(Newsletter)
 # admin.site.register()
 # admin.site.register()

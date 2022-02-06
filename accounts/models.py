@@ -6,7 +6,6 @@ from django.contrib.auth.models import (
 import uuid
 
 
-
 # USER_TYPE = (
 #     ('student', 'Student'),
 #     ('staff', 'Staff'),

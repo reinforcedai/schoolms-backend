@@ -73,7 +73,7 @@ class Student(models.Model):
     admission_number = models.CharField(max_length=256, null=True, blank=True)
     pin = models.CharField(max_length=256, null=True, blank=True)
     gender = models.CharField(max_length=6, choices=GENDER)
-    date_of_birth = models.DateTimeField('Date of birth', null=True, blank=True)
+    date_of_birth = models.DateField('Date of birth', null=True, blank=True)
     photo = models.ImageField(upload_to='', blank=True, help_text='upload profile photo')
     status = models.CharField(max_length=32, choices=STATUS)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
@@ -170,13 +170,6 @@ class Performance(models.Model):
 
     class Meta:
         verbose_name_plural = 'Performances'
-
-class Newsletter(models.Model):
-    title = models.CharField(max_length=225, null=True, blank=True)
-    content = models.TextField(max_length=1024, null=True, blank=True)
-
-    class Meta:
-        verbose_name_plural = 'Newsletters'
 
 # @receiver(post_save, sender=User)
 # def create_profile(sender, instance, created, **kwargs):

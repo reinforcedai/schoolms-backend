@@ -43,3 +43,10 @@ class News(models.Model):
     class Meta:
         ordering = ['-published_at']
         verbose_name_plural = 'News And Events'
+
+class Newsletter(models.Model):
+    title = models.CharField(max_length=225, null=True, blank=True)
+    content = models.TextField(max_length=1024, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Newsletters'
