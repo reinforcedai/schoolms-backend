@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from .serializers import CategoryViewSet, NewsViewSet, NewsletterViewSet
+from .views import CategoryViewSet, NewsViewSet, NewsletterViewSet
 
 
 router = routers.DefaultRouter()

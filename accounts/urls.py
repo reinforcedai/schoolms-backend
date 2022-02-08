@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
-from .serializers import UserViewSet, GroupViewSet
+from .views import UserViewSet, GroupViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)

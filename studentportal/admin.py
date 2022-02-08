@@ -11,7 +11,7 @@ from .models import (
     Parent,
     Subject,
     Performance,
-    )
+)
 
 admin.site.register(Student)
 admin.site.register(Attendance)

@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import StaffProfile, SchoolAsset, Calendar, AdmissionForm
+from .models import StaffProfile, SchoolAssetManager, Calendar, AdmissionForm
 
 
 admin.site.register(StaffProfile)
-admin.site.register(SchoolAsset)
+admin.site.register(SchoolAssetManager)
 admin.site.register(Calendar)
 admin.site.register(AdmissionForm)
 # admin.site.register()

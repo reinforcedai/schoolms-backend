@@ -13,7 +13,7 @@ class School(models.Model):
         verbose_name_plural = 'School Details'
 
 
-class SchoolAsset(models.Model):
+class SchoolAssetManager(models.Model):
     name = models.CharField(max_length=64, null=True, blank=True)
     description = models.CharField(max_length=256, null=True, blank=True)
     quantity = models.CharField(max_length=256, null=True, blank=True)
@@ -21,7 +21,7 @@ class SchoolAsset(models.Model):
     date_acquired = models.DateField(null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = 'School Assets'
+        verbose_name_plural = 'School Asset Manager'
 
 class StaffProfile(models.Model):
     staff = models.OneToOneField(

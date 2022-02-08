@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
-from .serializers import SchoolViewSet
+from .views import SchoolViewSet
 
 
 router = routers.DefaultRouter()
