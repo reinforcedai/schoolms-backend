@@ -8,6 +8,14 @@ from .models import User
 
 
 class UserAdmin(BaseUserAdmin):
+
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        ('Personal info', {'fields': ('surname', 'first_name', 'last_name', 'email',)}),
+        ('User Type', {'fields': ('is_school_staff', 'is_student', 'is_alumni', 'is_parent',)}),
+        ('Permissions', {'fields': ('is_active', 'is_admin', 'is_superuser', 'groups', 'user_permissions',)}),
+        ('Important Dates', {'fields': ('last_login', 'date_joined',)})
+    )
    
     add_fieldsets = (
         (None, {

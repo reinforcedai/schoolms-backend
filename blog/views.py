@@ -12,6 +12,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class NewsViewSet(viewsets.ModelViewSet):
     serializer_class = NewsSerializer
     queryset = News.objects.all()
+    lookup_field = 'slug'
 
 class NewsletterViewSet(viewsets.ModelViewSet):
     serializer_class = NewsletterSerializer

@@ -22,7 +22,7 @@ class Category(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=225)
-    description = models.CharField(max_length=512)
+    description = models.CharField(max_length=512, blank=True, null=True,)
     content = RichTextField(blank=True, null=True,)
     image = models.ImageField(upload_to='uploads/', blank=True)
     author = models.CharField(max_length=225, blank=True, null=True,)
