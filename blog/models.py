@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 
 
@@ -23,12 +23,11 @@ class Category(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=225)
     description = models.CharField(max_length=512, blank=True, null=True,)
-    content = RichTextField(blank=True, null=True,)
-    image = models.ImageField(upload_to='uploads/', blank=True)
+    content = RichTextUploadingField()
+    image = models.ImageField(upload_to='blog/', default='thumbnail.png', blank=True, null=True,)
     author = models.CharField(max_length=225, blank=True, null=True,)
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE,)
     slug = models.SlugField(unique=True, max_length=2000)
-    published_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     published_at = models.DateTimeField(auto_now=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 
@@ -47,6 +46,7 @@ class News(models.Model):
 class Newsletter(models.Model):
     title = models.CharField(max_length=225, null=True, blank=True)
     content = models.TextField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(upload_to='',)
 
     class Meta:
         verbose_name_plural = 'Newsletters'

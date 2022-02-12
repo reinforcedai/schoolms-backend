@@ -3,7 +3,7 @@ from .models import News, Category, Newsletter
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'published_by', 'published_at',)
+    list_display = ('title', 'category', 'published_at',)
     list_filter = ('category',)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}

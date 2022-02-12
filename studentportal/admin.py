@@ -4,9 +4,9 @@ from .models import (
     Student,
     Attendance,
     Result,
-    # Transcript,
-    # NominalRoll,
-    Invoice,
+    Transcript,
+    NominalRoll,
+    Payment,
     Hostel,
     Parent,
     Subject,
@@ -16,9 +16,9 @@ from .models import (
 admin.site.register(Student)
 admin.site.register(Attendance)
 admin.site.register(Result)
-# admin.site.register(Transcript)
-# admin.site.register(NominalRoll)
-admin.site.register(Invoice)
+admin.site.register(Transcript)
+admin.site.register(NominalRoll)
+admin.site.register(Payment)
 admin.site.register(Hostel)
 admin.site.register(Parent)
 admin.site.register(Subject)

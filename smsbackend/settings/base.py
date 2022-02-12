@@ -33,10 +33,15 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-# AWS_ACCESS_SECRET = env('AWS_ACCESS_SECRET')
-# AWS_REGION = env('AWS_REGION')
-# AWS_BUCKET_NAME = env('AWS_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
+
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = False
+
 
 ALLOWED_HOSTS = []
 
@@ -68,6 +73,8 @@ INSTALLED_APPS = [
 
     'import_export',
     'ckeditor',
+    'ckeditor_uploader',
+    'storages',
     'django_extensions',
     'debug_toolbar',
 
@@ -160,11 +167,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',
-#     '/var/www/static/',
-# ]
-STATIC_ROOT = BASE_DIR / 'assets'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/Media/'
 MEDIA_ROOT = BASE_DIR / 'Media'
@@ -182,9 +188,9 @@ django_heroku.settings(locals())
 
 # storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -201,7 +207,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserSerializer'
+    # 'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserSerializer'
 }
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'

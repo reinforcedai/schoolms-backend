@@ -12,7 +12,7 @@ class NewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ['title', 'description', 'content', 'slug']
+        fields = ['title', 'description', 'content', 'image', 'author', 'category', 'slug']
         lookup_field = 'slug'
     
 class NewsletterSerializer(serializers.ModelSerializer):
